@@ -1,0 +1,73 @@
+<section class="py-24 relative">
+  <div class="w-full max-w-7xl px-4 md:px-5 lg:px-6 mx-auto">
+
+    <h2 class="font-manrope font-bold text-4xl leading-10 mb-8 text-center text-black">Shopping Cart</h2>
+
+    <!-- Hidden header for desktop view -->
+    <div class="hidden lg:grid grid-cols-2 py-6">
+      <div class="font-normal text-xl leading-8 text-gray-500">Product</div>
+      <p class="font-normal text-xl leading-8 text-gray-500 flex items-center justify-between">
+        <span class="w-full max-w-[200px] text-center">Quantity</span>
+        <span class="w-full max-w-[200px] text-center">Total</span>
+      </p>
+    </div>
+
+    <!-- Iterate over cart items -->
+    <div *ngFor="let item of cartItems" class="grid grid-cols-1 lg:grid-cols-2 gap-6 border-t border-gray-200 py-6">
+      <div class="flex flex-col sm:flex-row items-center gap-6 w-full max-w-xl mx-auto">
+        <div class="w-full sm:w-auto"><img [src]="item.product.image" alt="Product Image" class="w-36 xl:w-40"></div>
+        <div class="flex flex-col items-center sm:items-start w-full max-w-sm text-center sm:text-left">
+          <h5 class="font-semibold text-xl leading-8 text-black">{{ item.product.name }}</h5>
+          <p class="font-normal text-lg leading-8 text-gray-500 my-2">{{ item.product.category }}</p>
+          <h6 class="font-medium text-lg leading-8">{{ 'RS.' + item.product.price }}</h6>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center w-full max-w-xl mx-auto gap-2">
+        <div class="flex items-center justify-center w-full">
+          <button (click)="decrementQuantity(item.product._id)"
+            class="group rounded-l-full px-6 py-4 border border-gray-200 flex items-center justify-center shadow-sm transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+            <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
+              xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M16.5 11H5.5" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <input type="text"
+            class="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[118px] min-w-[80px] text-center bg-transparent py-4"
+            [value]="item.quantity">
+          <button (click)="incrementQuantity(item.product._id)"
+            class="group rounded-r-full px-6 py-4 border border-gray-200 flex items-center justify-center shadow-sm transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+            <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
+              xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 5.5V16.5M16.5 11H5.5" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+        <h6 class=" font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">{{ 'RS.'
+          + (item.product.price * item.quantity) }}</h6>
+      </div>
+    </div>
+
+    <!-- Total Section -->
+    <div class="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl mx-auto">
+      <div class="flex items-center justify-between w-full py-6">
+        <p class="font-normal text-xl leading-8 text-gray-400">Sub Total</p>
+        <h6 class="font-semibold text-xl leading-8 text-gray-900">{{ 'RS.' + calculateSubTotal() }}</h6>
+      </div>
+
+    </div>
+
+    <!-- Buttons Section -->
+
+    <div class="flex flex-col sm:flex-row justify-center gap-3 mt-8">
+      <a routerLink="/cash"
+        class="rounded-full py-4 w-full max-w-xs flex items-center bg-indigo-50 justify-center transition-all duration-500 hover:bg-indigo-100">
+        <span class="px-2 font-semibold text-lg leading-8 ">Checkout</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M8.25324 5.49609L13.7535 10.9963L8.25 16.4998" stroke="#4F46E5" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div class="flex items-center justify-center">
+      <hr class="flex-1 border-gray-300">
+      <h2 class="text-5xl font-bold tracking-tight text-center text-gray-900 mx-6">Products</h2>
+      <hr class="flex-1 border-gray-300">
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8 mt-10">
+      <!-- Loop through products using *ngFor directive -->
+      <app-product *ngFor="let product of products" [product]="product"></app-product>
+    </div>
+  </div>
+</div>

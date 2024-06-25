@@ -1,0 +1,65 @@
+<div class="flex min-h-screen bg-gray-100 items-center justify-center">
+  <!-- Login form container -->
+  <div class="w-full max-w-sm bg-white rounded-lg shadow-lg px-6 py-8">
+    <!-- Logo and title -->
+    <h1 class="ml-2 text-xl font-bold leading-9 text-gray-900 text-center">
+      Sign in
+    </h1>
+
+    <!-- Form -->
+    <form class="space-y-6" (ngSubmit)="handleSubmit()">
+      <!-- Email input -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-900">Email address</label>
+        <div class="mt-1">
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter Email" [(ngModel)]="email"
+            #emailInput="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+            [ngClass]="{
+              'border-red-500': emailInput.invalid && emailInput.touched,
+              'border-gray-300': !(emailInput.invalid && emailInput.touched)
+            }" />
+          <p *ngIf="emailInput.invalid && emailInput.touched" class="mt-2 text-sm text-red-500">
+            <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+            <span *ngIf="emailInput.errors?.['pattern']">Invalid email format.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div>
+        <div class="flex justify-between">
+          <label for="password" class="block text-sm font-medium text-gray-900">Password</label>
+        </div>
+        <div class="mt-1">
+          <input id="password" name="password" type="password" autocomplete="current-password"
+            placeholder="Enter Password" [(ngModel)]="password" #passwordInput="ngModel" required
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@]{8,}$"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+            [ngClass]="{
+              'border-red-500': passwordInput.invalid && passwordInput.touched,
+              'border-gray-300': !(passwordInput.invalid && passwordInput.touched)
+            }" />
+          <p *ngIf="passwordInput.invalid && passwordInput.touched" class="mt-2 text-sm text-red-500">
+            <span *ngIf="passwordInput.errors?.['required']">This is required.</span>
+            <span *ngIf="passwordInput.errors?.['pattern']">Follow Password Standards.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-semibold text-white bg-gray-700 hover:text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Sign in
+        </button>
+      </div>
+    </form>
+
+    <!-- Sign up link -->
+    <p class="mt-6 text-center text-sm text-gray-500">
+      Don't have an account?
+      <a routerLink="/register" class="font-semibold text-gray-700">Signup</a>
+    </p>
+  </div>
+</div>

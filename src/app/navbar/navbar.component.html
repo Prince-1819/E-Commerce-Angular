@@ -1,0 +1,30 @@
+<header class="text-gray-600 body-font sticky top-0 bg-white shadow-md z-10 bg-gray-700">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a href="#" class="flex items-center text-gray-900 mb-4 md:mb-0">
+      <!-- Replace SVG with an image -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr7Z8Xxmdvm8f96Gkp8EIZVKg3wBEt_p7CYA&s" alt="Logo"
+        class="w-10 h-10 rounded-full">
+      <span class="ml-3 text-xl text-white">SneaCare</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a routerLink="/" class="mr-5 hover:text-gray-900 text-white">Home</a>
+      <a routerLink="/products" class="mr-5 hover:text-gray-900 text-white">Products</a>
+      <a routerLink="/cart" class="mr-5 hover:text-gray-900 text-white">Cart</a>
+      <!-- <a routerLink="/about" class="mr-5 hover:text-gray-900">About</a> -->
+    </nav>
+    <button *ngIf="!islogin" (click)="goToLogin()"
+      class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    <button *ngIf="islogin" (click)="logout()"
+      class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Logout
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+</header>

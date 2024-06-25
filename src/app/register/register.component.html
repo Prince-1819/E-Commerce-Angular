@@ -1,0 +1,249 @@
+<!-- <div class="flex min-h-screen bg-gray-100">
+  <div
+    class="hidden lg:block flex-1 bg-cover bg-center"
+    [style.backgroundImage]="
+      'url(https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
+    "
+    style="flex-grow: 1; flex-shrink: 1"
+  ></div>
+
+  <div class="flex-1 flex flex-col justify-center px-6 py-12 lg:px-8">
+    <div
+      class="sm:mx-auto sm:w-full sm:max-w-sm bg-white rounded-lg overflow-hidden shadow-lg"
+    >
+      <div class="px-6 py-8 sm:px-10">
+        <div class="flex items-center justify-center">
+          <img
+            class="h-16 w-16 rounded-full"
+            src="https://www.shutterstock.com/shutterstock/photos/1849361008/display_1500/stock-vector-initial-based-hk-kh-logo-template-unique-monogram-alphabet-letters-design-and-vector-1849361008.jpg"
+            alt="Your Company"
+          />
+          <h2 class="ml-2 text-xl font-bold leading-9 text-gray-900">
+            Create your account
+          </h2>
+        </div>
+
+        <form class="mt-8 space-y-6" (ngSubmit)="handleSubmit()">
+          <div>
+            <label
+              for="username"
+              class="text-left block text-sm font-medium leading-6 text-gray-900"
+              >Username</label
+            >
+            <div class="mt-1">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="username"
+                placeholder="Enter Username"
+                [(ngModel)]="username"
+                #usernameInput="ngModel"
+                required
+                minlength="3"
+                class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent
+                              {{
+                  usernameInput.invalid && usernameInput.touched
+                    ? 'border-red-500'
+                    : 'border-gray-300'
+                }}"
+              />
+              <div>
+                <span
+                  *ngIf="usernameInput.errors?.['required'] && usernameInput.touched"
+                  style="color: red"
+                  >This is required</span
+                >
+                <span
+                  *ngIf="usernameInput.errors?.['minlength'] && usernameInput.touched"
+                  style="color: red"
+                  >Length should be greater than 3</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="text-left block text-sm font-medium leading-6 text-gray-900"
+              >Email address</label
+            >
+            <div class="mt-1">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="Enter Email"
+                [(ngModel)]="email"
+                #emailInput="ngModel"
+                required
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent
+                              {{
+                  emailInput.invalid && emailInput.touched
+                    ? 'border-red-500'
+                    : 'border-gray-300'
+                }}"
+              />
+              <p
+                *ngIf="emailInput.invalid && emailInput.touched"
+                class="mt-2 text-sm text-red-500"
+              >
+                <span *ngIf="emailInput.errors?.['required']"
+                  >Email is required.</span
+                >
+                <span *ngIf="emailInput.errors?.['pattern']"
+                  >Invalid email format.</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <div class="flex justify-between">
+              <label
+                for="password"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Password</label
+              >
+            </div>
+            <div class="mt-1">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@]{8,}$"
+                placeholder="Enter Password"
+                [(ngModel)]="password"
+                #passwordInput="ngModel"
+                required
+                class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent
+                              {{
+                  passwordInput.invalid && passwordInput.touched
+                    ? 'border-red-500'
+                    : 'border-gray-300'
+                }}"
+              />
+              <div>
+                <span
+                  *ngIf="passwordInput.errors?.['required'] && passwordInput.touched"
+                  style="color: red"
+                  >This is required</span
+                >
+                <span
+                  *ngIf="passwordInput.errors?.['pattern'] && passwordInput.touched"
+                  style="color: red"
+                  >Follow Password Standards</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button
+              type="submit"
+              class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Sign up
+            </button>
+          </div>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-gray-500">
+          Already have an account?
+          <a
+            routerLink="/login"
+            class="font-semibold text-indigo-600 hover:text-indigo-500"
+            >Sign in</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="flex min-h-screen bg-gray-100 items-center justify-center">
+  <!-- Register form container -->
+  <div class="w-full max-w-sm bg-white rounded-lg shadow-lg px-6 py-8">
+    <!-- Logo and title -->
+    <h2 class="ml-2 text-xl font-bold leading-9 text-gray-900 text-center">
+      Register
+    </h2>
+
+    <!-- Form -->
+    <form class="space-y-6" (ngSubmit)="handleSubmit()">
+      <!-- Username input -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-900">Name</label>
+        <div class="mt-1">
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter Username"
+            [(ngModel)]="username" #usernameInput="ngModel" required minlength="3"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
+            [ngClass]="{
+              'border-red-500': usernameInput.invalid && usernameInput.touched,
+              'border-gray-300': !(usernameInput.invalid && usernameInput.touched)
+            }" />
+          <div class="mt-2 text-sm text-red-500">
+            <span *ngIf="usernameInput.errors?.['required'] && usernameInput.touched">This is required.</span>
+            <span *ngIf="usernameInput.errors?.['minlength'] && usernameInput.touched">Length should be greater than
+              3.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-900">Email address</label>
+        <div class="mt-1">
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter Email" [(ngModel)]="email"
+            #emailInput="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
+            [ngClass]="{
+              'border-red-500': emailInput.invalid && emailInput.touched,
+              'border-gray-300': !(emailInput.invalid && emailInput.touched)
+            }" />
+          <p *ngIf="emailInput.invalid && emailInput.touched" class="mt-2 text-sm text-red-500">
+            <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+            <span *ngIf="emailInput.errors?.['pattern']">Invalid email format.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-900">Password</label>
+        <div class="mt-1">
+          <input id="password" name="password" type="password" autocomplete="current-password"
+            placeholder="Enter Password" [(ngModel)]="password" #passwordInput="ngModel" required
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@]{8,}$"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
+            [ngClass]="{
+              'border-red-500': passwordInput.invalid && passwordInput.touched,
+              'border-gray-300': !(passwordInput.invalid && passwordInput.touched)
+            }" />
+          <p *ngIf="passwordInput.invalid && passwordInput.touched" class="mt-2 text-sm text-red-500">
+            <span *ngIf="passwordInput.errors?.['required']">This is required.</span>
+            <span *ngIf="passwordInput.errors?.['pattern']">Password is Not strong</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Sign up button -->
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-semibold text-white bg-gray-700 hover:text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          Sign up
+        </button>
+      </div>
+    </form>
+
+    <!-- Sign in link -->
+    <p class="mt-6 text-center text-sm text-gray-500">
+      Already have an account?
+      <a routerLink="/login" class="font-semibold text-gray-700 hover:text-gray-500">Sign in</a>
+    </p>
+  </div>
+</div>
