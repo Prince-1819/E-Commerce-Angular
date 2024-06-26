@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './auth.service';
 import { CashComponent } from './cash/cash.component';
-import { CardComponent } from './card/card.component';
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +30,7 @@ import { CardComponent } from './card/card.component';
     LoginComponent,
     RegisterComponent,
     CashComponent,
-    CardComponent
+    ContactComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

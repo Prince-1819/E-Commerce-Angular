@@ -54,11 +54,11 @@ export class LoginComponent {
         console.log('User logged in:', userData);
   
         // Store user data in localStorage
-        localStorage.setItem('userData', JSON.stringify(userData._id));
+        localStorage.setItem('userId', userData.userId);
         this.authService.login = true;
   
         // Update cart items with user_id
-        this.updateCartItemsUserId(userData._id);
+        this.updateCartItemsUserId(localStorage.getItem('userId') ?? '');
         console.log(userData)
 
         this.router.navigate(['/']);
@@ -82,32 +82,32 @@ export class LoginComponent {
   }
   
 
-  private mergeCartItems(dbData: cartProduct[], localStorageItems: cartProduct[] , user_id:string): cartProduct[] {
-    const mergedCartItems: cartProduct[] = [];
+//   private mergeCartItems(dbData: cartProduct[], localStorageItems: cartProduct[] , user_id:string): cartProduct[] {
+//     const mergedCartItems: cartProduct[] = [];
 
-    // Create a map of dbData for efficient lookup
-    let data:cartProduct[];
-   dbData.forEach((db_item)=>{
-    console.log(db_item.user_id)
-    let flag = false;
-      localStorageItems.forEach((item)=>{
-        if(item.product._id === db_item.product._id){
-          flag = true
-        }
-      })
-      if(!flag){
-        const addProdct:cartProduct = {
-          product: db_item.product,
-          user_id: user_id,
-          quantity: db_item.quantity
-        }
-      localStorageItems.push(addProdct)
-      }
-    })
-    console.log(localStorageItems)
+//     // Create a map of dbData for efficient lookup
+//     let data:cartProduct[];
+//    dbData.forEach((db_item)=>{
+//     console.log(db_item.user_id)
+//     let flag = false;
+//       localStorageItems.forEach((item)=>{
+//         if(item.product._id === db_item.product._id){
+//           flag = true
+//         }
+//       })
+//       if(!flag){
+//         const addProdct:cartProduct = {
+//           product: db_item.product,
+//           user_id: user_id,
+//           quantity: db_item.quantity
+//         }
+//       localStorageItems.push(addProdct)
+//       }
+//     })
+//     console.log(localStorageItems)
 
-    return localStorageItems;
-  }
+//     return localStorageItems;
+//   }
 
 
   private updateCartItemsUserId(userId: string): void {

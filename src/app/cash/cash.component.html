@@ -21,7 +21,7 @@
           <!-- Name input -->
           <div>
             <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
-            <input id="name" type="text" name="name" autocomplete="name" placeholder="Enter name" [(ngModel)]="name"
+            <input id="name" type="text" name="name" autocomplete="name" placeholder="Enter name" [(ngModel)]="name" required
               #username="ngModel" required minlength="3"
               class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
               [class.border-red-500]="username.invalid && username.touched"
@@ -44,22 +44,22 @@
               [class.border-gray-300]="!userphone.invalid || !userphone.touched" />
             <p *ngIf="userphone.invalid && userphone.touched" class="mt-2 text-sm text-red-500">
               <span *ngIf="userphone.errors?.['required']">Phone Number is required.</span>
-              <span *ngIf="userphone.errors?.['pattern']">Invalid phone number format (should be 10 digits).</span>
+              <span *ngIf="userphone.errors?.['pattern']">Phone Number Should be 10 digit long!</span>
             </p>
           </div>
 
           <!-- Address input -->
           <div>
             <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Delivery Address</label>
-            <textarea id="address" name="address" rows="4" [(ngModel)]="address" #daddress="ngModel" required
+            <textarea id="address" name="address" rows="4" [(ngModel)]="address" #address="ngModel" required
               class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
-              [class.border-red-500]="daddress.invalid && daddress.touched"
-              [class.border-gray-300]="!daddress.invalid || !daddress.touched"></textarea>
+              [class.border-red-500]="address.invalid && address.touched"
+              [class.border-gray-300]="!address.invalid || !address.touched"></textarea>
             <div>
-              <p *ngIf="daddress.invalid && daddress.touched" class="mt-2 text-sm text-red-500">
+              <p *ngIf="address.invalid && address.touched" class="mt-2 text-sm text-red-500">
                 Delivery Address is required.
               </p>
-              <p *ngIf="!daddress.touched && !userphone.touched && !username.touched" class="mt-2 text-sm text-red-500">
+              <p *ngIf="!address.touched && !userphone.touched && !username.touched" class="mt-2 text-sm text-red-500">
                 {{error}}
               </p>
             </div>

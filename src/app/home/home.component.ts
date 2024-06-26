@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ProductlistComponent } from '../productlist/productlist.component';
 
 @Component({
@@ -9,5 +11,9 @@ import { ProductlistComponent } from '../productlist/productlist.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  constructor(private router: Router) {}
 
+  navigateToProducts() {
+    this.router.navigate(['/products']);
+  }
 }

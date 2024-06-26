@@ -6,7 +6,7 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CashComponent } from './cash/cash.component';
-import { CardComponent } from './card/card.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' }, //default route
@@ -17,5 +17,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cash', component: CashComponent },
-  { path: 'card', component: CardComponent },
+  {path: 'contact', component: ContactComponent}
 ];

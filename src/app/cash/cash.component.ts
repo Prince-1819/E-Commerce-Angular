@@ -18,9 +18,15 @@ export class CashComponent implements OnInit {
   totalPayment!: number;
   error!:string
 
+    constructor(private router: Router) {}
+
+
   ngOnInit() {
     // Retrieve total payment from local storage or API call
     const storedTotalPayment:cartProduct[] =typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('cartItems') || '[]') : [];
+    // const storedTotalPayment:cartProduct[] =typeof window !== 'undefined' ? JSON.parse(JSON.stringify(localStorage.getItem('cartItems') || [])) : [];
+
+
     console.log(storedTotalPayment)
     this.totalPayment = this.calculateTotalPayment(storedTotalPayment);
   }
@@ -38,17 +44,15 @@ export class CashComponent implements OnInit {
   onSubmit() {
     // Handle form submission logic here
     if(!this.name || !this.phone ||!this.address){
-      this.error = "Feel All the fields"
+      this.error = "Fields are Required"
     }
     else{
       this.error = ""
     }
-    // console.log('Form submitted');
-    // console.log('Name:', this.name);
-    // console.log('Phone:', this.phone);
-    // console.log('Address:', this.address);
-    // console.log('Total Payment:', this.totalPayment);
-    alert("Order Succesfully Placed");
+
+    // alert("Order Succesfully Placed");
+    // this.router.navigate(['/']);
+
   }
 
 

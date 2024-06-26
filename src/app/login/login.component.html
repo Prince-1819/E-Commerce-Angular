@@ -14,7 +14,7 @@
         <div class="mt-1">
           <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter Email" [(ngModel)]="email"
             #emailInput="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
             [ngClass]="{
               'border-red-500': emailInput.invalid && emailInput.touched,
               'border-gray-300': !(emailInput.invalid && emailInput.touched)
@@ -35,7 +35,7 @@
           <input id="password" name="password" type="password" autocomplete="current-password"
             placeholder="Enter Password" [(ngModel)]="password" #passwordInput="ngModel" required
             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@]{8,}$"
-            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+            class="block w-full p-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
             [ngClass]="{
               'border-red-500': passwordInput.invalid && passwordInput.touched,
               'border-gray-300': !(passwordInput.invalid && passwordInput.touched)
@@ -50,7 +50,7 @@
       <!-- Sign in button -->
       <div>
         <button type="submit"
-          class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-semibold text-white bg-gray-700 hover:text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-semibold text-white bg-gray-700 hover:text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
           Sign in
         </button>
       </div>

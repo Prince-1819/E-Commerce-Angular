@@ -19,7 +19,7 @@ export class ProductComponent {
 
   addToCart(product: Product, user_id: string | null): void {
     const data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('userData') || '[]') : [];
-    let id = user_id
+    let id = localStorage.getItem('userId')
     if(data.length>5){
       id = data
     }

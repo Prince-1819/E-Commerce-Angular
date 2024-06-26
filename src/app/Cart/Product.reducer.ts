@@ -27,7 +27,7 @@ export const productReducer = createReducer(
     );
 
     if (existingItem) {
-      if (existingItem.quantity < 5) {
+      if (existingItem.quantity < 10) {
         const updatedCartItems = state.cartItems.map(item =>
           item.product._id === product._id && item.user_id === user_id
             ? { ...item, quantity: item.quantity + 1 }
@@ -60,7 +60,7 @@ export const productReducer = createReducer(
   }),
   on(ProductActions.incrementQuantity, (state, { productId }) => {
     const updatedCartItems = state.cartItems.map(item =>
-      item.product._id === productId && item.quantity < 5
+      item.product._id === productId && item.quantity < 10
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
