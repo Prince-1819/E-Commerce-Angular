@@ -51,7 +51,7 @@
           <!-- Address input -->
           <div>
             <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Delivery Address</label>
-            <textarea id="address" name="address" rows="4" [(ngModel)]="address" #address="ngModel" required
+            <textarea id="address" name="address1" rows="4" [(ngModel)]="address" #address="ngModel" required
               class="block w-full p-4 py-4 rounded-md border focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
               [class.border-red-500]="address.invalid && address.touched"
               [class.border-gray-300]="!address.invalid || !address.touched"></textarea>

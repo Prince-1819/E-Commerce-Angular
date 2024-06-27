@@ -9,7 +9,7 @@ import { CashComponent } from './cash/cash.component';
 import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' }, //default route
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductlistComponent },
   { path: 'product/:id', component: ProductdetailComponent },

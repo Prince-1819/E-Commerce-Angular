@@ -50,8 +50,8 @@ export class CashComponent implements OnInit {
       this.error = ""
     }
 
-    // alert("Order Succesfully Placed");
-    // this.router.navigate(['/']);
+    alert("Order Succesfully Placed");
+    this.router.navigate(['/']);
 
   }
 

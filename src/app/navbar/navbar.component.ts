@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
     );
     console.log(this.islogin)
     if(!this.islogin){
-      const data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(this.localStorageKey) || '[]') : [];
+      const data = typeof window !== 'undefined' ? localStorage.getItem(this.localStorageKey) || '[]' : [];
     if(data.length>5){
     this.authServiec.login = true;
     }

@@ -17,13 +17,14 @@ export class ProductComponent {
 
   constructor(private router: Router, private sendDataService: SenddataService , private store: Store) {}
 
-  addToCart(product: Product, user_id: string | null): void {
-    const data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('userData') || '[]') : [];
+  addToCart(product: Product): void {
+    // const data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('userData') || '[]') : [];
     let id = localStorage.getItem('userId')
-    if(data.length>5){
-      id = data
-    }
-    console.log(product,id)
+    // if(data.length>5){
+    //   id = data
+    // }
+    console.log(product)
+    console.log(id)
     this.store.dispatch(ProductActions.addItem({ product, user_id:id }));
   }
 
